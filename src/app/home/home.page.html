@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-segment [(ngModel)]="galleryType" color="primary">
+        <ion-segment-button value="regular">
+          Regular
+        </ion-segment-button>
+        <ion-segment-button value="pinterest">
+          Pinterest
+        </ion-segment-button>
+      </ion-segment>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content class="card-background-page">
+    <div [ngSwitch]="galleryType">
+    <ion-grid *ngSwitchCase="'regular'">
+      <ion-row>
+        <ion-col
+        size="12"
+        size-xs="6"
+        size-sm="6"
+        size-md="4"
+        size-lg="3"
+        *ngFor="let image of [725,200,300,750,500,225,375]">
+
+
+        <ion-card color="secondary">
+
+          <!-- <ion-grid *ngSwitchCase="'regular'">
+          <ion-row>
+          <ion-col col-6 col-md-4 col-xl-3 *ngFor="let image of [1,2,3,4,5,6]"> -->
+          <!-- http://placehold.it/{{image}}x{{image}}.png -->
+          <img  class="image-container" src="http://placehold.it/{{ image }}x{{image}}.png" tappable (click)="openPreview(image)">
+          <div class="card-title">São Paulo</div>
+          <div class="card-subtitle">41 Listings</div>
+
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- <div [ngSwitch]="galleryType">
+  <!-- Responsive Layout with Ion Grid-->
+
+
+  <!-- </ion-col>
+</ion-row>
+</ion-grid> -->
+
+
+<!-- More Pinterest floating gallery style -->
+  <ion-grid *ngSwitchCase="'pinterest'">
+<ion-row>
+  <ion-col
+  size="12"
+  size-xs="6"
+  size-sm="6"
+  size-md="4"
+  size-lg="3"
+  *ngFor="let topic of [A,B,C,D,E,F,G,H,I,J,K,L]">
+
+
+
+  <ion-card color="secondary">
+
+    <ion-card-header>{{topic}}</ion-card-header>
+
+
+  </ion-card>
+
+</ion-col>
+</ion-row>
+</ion-grid>
+
+
+</div>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name=""></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>
